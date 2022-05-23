@@ -13,7 +13,16 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Yammy',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        colorScheme: ColorScheme.fromSwatch(
+          primarySwatch: Colors.deepOrange,
+        ).copyWith(secondary: Colors.black),
+        canvasColor: Colors.white,
+        fontFamily: 'Raleway',
+        textTheme: const TextTheme(
+          bodyText1: TextStyle(color: Colors.black, fontSize: 14),
+          bodyText2: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 18),
+          headline6: TextStyle(fontFamily: 'RobotoCondensed', fontWeight: FontWeight.bold, fontSize: 20),
+        ),
       ),
       home: CategoriesScreen(),
     );
