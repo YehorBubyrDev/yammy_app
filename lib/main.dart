@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import './screens/categories_screen.dart';
 
 void main() {
@@ -16,7 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Yammy'),
+      home: CategoriesScreen(),
     );
   }
 }
@@ -30,7 +29,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
