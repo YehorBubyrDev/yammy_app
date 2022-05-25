@@ -15,6 +15,7 @@ class CategoriesScreen extends StatelessWidget {
         padding: const EdgeInsets.all(10),
         children: DUMMY_CATEGORIES
             .map((category) => CategoryItem(
+                  id: category.id,
                   title: category.title,
                   color: category.color,
                 ))
