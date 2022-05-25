@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import './screens/category_meals_screen.dart';
 import './screens/categories_screen.dart';
 
 void main() {
@@ -17,36 +18,23 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.deepOrange,
         ).copyWith(secondary: Colors.black),
         canvasColor: Colors.white,
-        fontFamily: 'Raleway',
         textTheme: const TextTheme(
           bodyText1: TextStyle(color: Colors.black, fontSize: 14),
-          bodyText2: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 18),
-          headline6: TextStyle(fontFamily: 'RobotoCondensed', fontWeight: FontWeight.bold, fontSize: 20),
+          bodyText2: TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+            fontSize: 18,
+          ),
+          headline6: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 20,
+          ),
         ),
       ),
-      home: CategoriesScreen(),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: const Center(
-        child: CategoriesScreen(),
-      ),
+      home: const CategoriesScreen(),
+      routes: {
+        '/category-meals': (ctx) => CategoryMealsScreen(),
+      },
     );
   }
 }
