@@ -34,12 +34,11 @@ class MyApp extends StatelessWidget {
         ),
       ),
       routes: {
-        '/': (context) => const TabScreen(),
+        '/': (context) => const TabsScreen(),
         CategoryMealsScreen.routeName: (context) => const CategoryMealsScreen(),
         MealDetailScreen.routeName: (context) => const MealDetailScreen(),
       },
       onUnknownRoute: (settings) {
-        print(settings.name);
         return MaterialPageRoute(builder: (ctx) => const CategoriesScreen());
       },
     );
