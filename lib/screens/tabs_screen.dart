@@ -1,41 +1,55 @@
 import 'package:flutter/material.dart';
-import './categories_screen.dart';
-import './favorites_screen.dart';
 
-class TabScreen extends StatefulWidget {
-  const TabScreen({Key? key}) : super(key: key);
+import './favorites_screen.dart';
+import './categories_screen.dart';
+
+class TabsScreen extends StatefulWidget {
+  const TabsScreen({Key? key}) : super(key: key);
 
   @override
-  State<TabScreen> createState() => _TabScreenState();
+  _TabsScreenState createState() => _TabsScreenState();
 }
 
-class _TabScreenState extends State<TabScreen> {
+class _TabsScreenState extends State<TabsScreen> {
+  final List<Map<String, Object>> _pages = [
+    {
+      'page': const CategoriesScreen(),
+      'title': 'Categories',
+    },
+    {
+      'page': const FavoritesScreen(),
+      'title': 'Your Favorite',
+    },
+  ];
+  int _selectedPageIndex = 0;
+
+  void _selectPage(int index) {
+    setState(() {
+      _selectedPageIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: 2,
-      child: Scaffold(
-        appBar: AppBar(
-          title: const Text(
-            'Meals',
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('${_pages[_selectedPageIndex]['title']}'),
+      ),
+      body: _pages[_selectedPageIndex]['page'] as Widget,
+      bottomNavigationBar: BottomNavigationBar(
+        onTap: _selectPage,
+        currentIndex: _selectedPageIndex,
+        // type: BottomNavigationBarType.fixed,
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.category),
+            label: 'Categories',
           ),
-          bottom: const TabBar(tabs: <Widget>[
-            Tab(
-              icon: Icon(Icons.list),
-              text: 'Categories',
-            ),
-            Tab(
-              icon: Icon(Icons.star),
-              text: 'Favorites',
-            ),
-          ]),
-        ),
-        body: const TabBarView(
-          children: <Widget>[
-            CategoriesScreen(),
-            FavoritesScreen(),
-          ],
-        ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.star),
+            label: 'Favorites',
+          ),
+        ],
       ),
     );
   }
