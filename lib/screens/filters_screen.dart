@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../widgets/main_drawer.dart';
 
 class FiltersScreen extends StatelessWidget {
   static String routeName = '/filters-screen';
@@ -7,16 +8,17 @@ class FiltersScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Filters screen'),
-        ),
-        body: const Center(
-          child: Text(
-            'Filters screen!',
-            style: TextStyle(
-              color: Colors.black,
-            ),
+      appBar: AppBar(
+        title: const Text('Your filters'),
+      ),
+      body: const Center(
+        child: Text(
+          'Filters screen!',
+          style: TextStyle(
+            color: Colors.black,
           ),
-        ));
+        ),
+      ),
+    );
   }
 }
