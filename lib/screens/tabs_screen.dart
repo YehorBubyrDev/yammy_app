@@ -22,6 +22,7 @@ class _TabsScreenState extends State<TabsScreen> {
       'title': 'Your Favorite',
     },
   ];
+
   int _selectedPageIndex = 0;
 
   void _selectPage(int index) {
